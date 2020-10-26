@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        {% load static %}
+        <title>{{ title }}</title>
+        <meta charset="UTF-8"/>
+		<link rel="stylesheet" type="text/css" href="{% static 'css/main.css' %}">
+        <link rel="icon" href="{% static 'images/icon.ico' %}">
+    </head>
+
+    <body id="HomePage">
+        <div id="home">
+            <nav class="navigation">
+                <p class="pageTitle">
+                    Math!
+                </p>
+
+                <div id="navbarSupportedContent">
+                    <ul>
+                        <li>
+                            <a href="{% url 'index' %}">Home Page</a>
+                        </li>
+
+                        <li>
+                            <a href="{% url 'prime_fact' %}">Prime Factorization</a>
+                        </li>
+
+                        <li>
+                            <a href="{% url 'knapsack' %}">Knapsack Problem</a>
+                        </li>
+                    </ul>
+                </div>
+
+                <div class="loginPlace">
+                    {% if request.user.is_authenticated %}
+                        <p style="font-size: 17px">Logged in as: {{ request.user }}, <a href="{% url 'logout' %}?next=/">Log out</a></p>
+                    {% else %}
+                        <a href="{% url 'signup' %}" class="top-menu">Sign up</a> / <a href="{% url 'login' %}">Log in</a>
+                    {% endif %}
+                </div>
+            </nav>
+
+            {% block content %}
+            {% endblock content %}
+        </div>
+    </body>
+</html>

@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        {% load static %}
+        <meta charset="UTF-8"/>
+		<title>Home Page</title>
+		<link rel="stylesheet" type="text/css" href="{% static 'css/signup.css' %}">
+        <link rel="icon" href="{% static 'images/logo.png' %}">
+    </head>
+
+    <body>
+        <h2>Sign up</h2>
+        <form method="post">
+            {% csrf_token %}
+            {{ form.as_p }}
+            <button type="submit">Sign up</button>
+        </form>
+
+        <p>Already have an account? <a href="{% url 'login' %}">Login</a></p>
+    </body>
+</html>

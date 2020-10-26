@@ -1,0 +1,220 @@
+{% extends 'IntFactorization/main.html' %}
+{% load static %}
+{% block content %}
+    <link rel="stylesheet" type="text/css" href="{% static 'css/knapsack.css' %}">
+    <div class="bg"></div>
+
+    <div class="knapsackContainer">
+            <div class="knapsackOverview">
+                <h2>Problem Overview</h2>
+                <p>
+                    In the knapsack problem, you need to pack a set of items, with given values and sizes (such as weights or volumes),
+                    into a container with a maximum capacity. If the total size of the items exceeds the capacity, you can't pack them all.
+                    In that case, the problem is to choose a subset of the items of maximum total value that will fit in the container.
+                </p>
+            </div>
+
+            <div class="knapsack">
+                <h2>Knapsack Problem</h2>
+
+                <div class="knapsackUserInput">
+                    <ul style="list-style-type: none" id="knapsackItems">
+                        <li class="knapsackAddItem">
+                            <button class="knapsackAddItemButton" type="button" onclick="addItemKnapsack()">+</button>
+                        </li>
+
+                        <li class="knapsackItem">
+                            <span>Weight</span>
+                            <input class="knapsackInputWeight" type="number" name="wightInput">
+
+                            <span>Value</span>
+                            <input class="knapsackInputValue" type="number" name="valeuInput">
+
+                            <button class="removeItemButton" type="button" onclick="removeItemKnapsack(event)">-</button>
+                        </li>
+                    </ul>
+
+                    <span>Weight Limit:</span>
+                    <input class="knapsackInputLimit" type="number" placeholder="Enter a number..">
+                    <button class="knapsackButton" type="button">Compute</button>
+                    <progress id="knapsackProgress" value="0" max="100"></progress>
+                </div>
+
+                <div class="knapsackResultContainer">
+                    <h3>Prime decomposition:</h3>
+                    <p class="knapsackResult"></p>
+                </div>
+            </div>
+        </div>
+
+        <footer>
+            <p>
+                What copyrights are you talking about
+            </p>
+        </footer>
+    </div>
+
+    <script>
+        function addItemKnapsack() {
+            var ul = document.getElementById("knapsackItems");
+            var li = document.createElement("li");
+            li.className = "knapsackItem";
+
+            var weightSpan = document.createElement("span");
+            weightSpan.appendChild(document.createTextNode("Weight"));
+            li.appendChild(weightSpan);
+
+            var weightInput = document.createElement("input");
+            weightInput.className = "knapsackInputWeight";
+            li.appendChild(weightInput);
+
+            var valueSpan = document.createElement("span");
+            valueSpan.appendChild(document.createTextNode("Value"));
+            li.appendChild(valueSpan);
+
+            var valueInput = document.createElement("input");
+            valueInput.className = "knapsackInputValue";
+            li.appendChild(valueInput);
+
+            var removeButton = document.createElement("button");
+            removeButton.className = "removeItemButton";
+            removeButton.nodeType = "button";
+            removeButton.onclick = removeItemKnapsack;
+            removeButton.appendChild(document.createTextNode("-"));
+            li.appendChild(removeButton);
+
+            ul.appendChild(li);
+        }
+
+        function removeItemKnapsack(ev) {
+            var ul = document.getElementById("knapsackItems");
+            ul.removeChild(ev.target.parentElement);
+        }
+    </script>
+{% endblock content %}
+
+<!--<!DOCTYPE html>-->
+<!--<html>-->
+<!--    <head>-->
+<!--        {% load static %}-->
+<!--        <meta charset="UTF-8"/>-->
+<!--		<title>Knapsack Problem</title>-->
+<!--		<link rel="stylesheet" type="text/css" href="{% static 'css/knapsack.css' %}">-->
+<!--        <link rel="icon" href="{% static 'images/logo.png' %}">-->
+<!--    </head>-->
+
+<!--    <body id="KnapsackPage">-->
+<!--        <div class="bg"></div>-->
+
+<!--        <div id="knapsack">-->
+<!--            <nav class="navigation">-->
+<!--                <p class="pageTitle">-->
+<!--                    Knapsack Problem-->
+<!--                </p>-->
+
+<!--                <div id="navbarSupportedContent">-->
+<!--                    <ul>-->
+<!--                        <li>-->
+<!--                            <a href="{% url 'index' %}">Home Page</a>-->
+<!--                        </li>-->
+
+<!--                        <li>-->
+<!--                            <a href="{% url 'prime_fact' %}">Prime Factorization</a>-->
+<!--                        </li>-->
+
+<!--                        <li>-->
+<!--                            <a href="{% url 'knapsack' %}">Knapsack Problem</a>-->
+<!--                        </li>-->
+<!--                    </ul>-->
+<!--                </div>-->
+<!--            </nav>-->
+
+<!--            <div class="knapsackContainer">-->
+<!--                <div class="knapsackOverview">-->
+<!--                    <h2>Problem Overview</h2>-->
+<!--                    <p>-->
+<!--                        In the knapsack problem, you need to pack a set of items, with given values and sizes (such as weights or volumes),-->
+<!--                        into a container with a maximum capacity. If the total size of the items exceeds the capacity, you can't pack them all.-->
+<!--                        In that case, the problem is to choose a subset of the items of maximum total value that will fit in the container.-->
+<!--                    </p>-->
+<!--                </div>-->
+
+<!--                <div class="knapsack">-->
+<!--                    <h2>Knapsack Problem</h2>-->
+
+<!--                    <div class="knapsackUserInput">-->
+<!--                        <ul style="list-style-type: none" id="knapsackItems">-->
+<!--                            <li class="knapsackAddItem">-->
+<!--                                <button class="knapsackAddItemButton" type="button" onclick="addItemKnapsack()">+</button>-->
+<!--                            </li>-->
+
+<!--                            <li class="knapsackItem">-->
+<!--                                <span>Weight</span>-->
+<!--                                <input class="knapsackInputWeight" type="number" name="wightInput">-->
+
+<!--                                <span>Value</span>-->
+<!--                                <input class="knapsackInputValue" type="number" name="valeuInput">-->
+
+<!--                                <button class="removeItemButton" type="button" onclick="removeItemKnapsack(event)">-</button>-->
+<!--                            </li>-->
+<!--                        </ul>-->
+
+<!--                        <span>Weight Limit:</span>-->
+<!--                        <input class="knapsackInputLimit">-->
+<!--                        <button class="knapsackButton" type="button">Compute</button>-->
+<!--                        <progress id="knapsackProgress" value="0" max="100"></progress>-->
+<!--                    </div>-->
+
+<!--                    <div class="knapsackResultContainer">-->
+<!--                        <h3>Prime decomposition:</h3>-->
+<!--                        <p class="knapsackResult"></p>-->
+<!--                    </div>-->
+<!--                </div>-->
+<!--            </div>-->
+
+<!--            <footer>-->
+<!--                <p>-->
+<!--                    What copyrights are you talking about-->
+<!--                </p>-->
+<!--            </footer>-->
+<!--        </div>-->
+
+<!--    <script>-->
+<!--        function addItemKnapsack() {-->
+<!--            var ul = document.getElementById("knapsackItems");-->
+<!--            var li = document.createElement("li");-->
+<!--            li.className = "knapsackItem";-->
+
+<!--            var weightSpan = document.createElement("span");-->
+<!--            weightSpan.appendChild(document.createTextNode("Weight"));-->
+<!--            li.appendChild(weightSpan);-->
+
+<!--            var weightInput = document.createElement("input");-->
+<!--            weightInput.className = "knapsackInputWeight";-->
+<!--            li.appendChild(weightInput);-->
+
+<!--            var valueSpan = document.createElement("span");-->
+<!--            valueSpan.appendChild(document.createTextNode("Value"));-->
+<!--            li.appendChild(valueSpan);-->
+
+<!--            var valueInput = document.createElement("input");-->
+<!--            valueInput.className = "knapsackInputValue";-->
+<!--            li.appendChild(valueInput);-->
+
+<!--            var removeButton = document.createElement("button");-->
+<!--            removeButton.className = "removeItemButton";-->
+<!--            removeButton.nodeType = "button";-->
+<!--            removeButton.onclick = removeItemKnapsack;-->
+<!--            removeButton.appendChild(document.createTextNode("-"));-->
+<!--            li.appendChild(removeButton);-->
+
+<!--            ul.appendChild(li);-->
+<!--        }-->
+
+<!--        function removeItemKnapsack(ev) {-->
+<!--            var ul = document.getElementById("knapsackItems");-->
+<!--            ul.removeChild(ev.target.parentElement);-->
+<!--        }-->
+<!--    </script>-->
+<!--    </body>-->
+<!--</html>-->

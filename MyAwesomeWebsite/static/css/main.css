@@ -1,0 +1,53 @@
+body {
+    font-family: Sans-Serif;
+    color: white;
+    padding: 0;
+}
+
+.navigation {
+    background-color: rgb(228, 228, 228);
+    margin-top: 50px;
+    margin-bottom: 50px;
+    margin-left: 150px;
+    margin-right: 150px;
+    text-align: center;
+    border-radius: 15px;
+    display: flex;
+    align-items: center;
+}
+
+.pageTitle {
+    text-align: left;
+    font-size: 36px;
+    color: black;
+    margin-left: 5%;
+    margin-right: 15%;
+}
+
+.navigation li {
+    display: inline;
+    font-size: 24px;
+}
+
+.navigation a {
+    text-decoration: none;
+    color: black;
+    padding-top: 10px;
+    padding-bottom: 10px;
+    padding-right: 10px;
+    padding-left: 10px;
+    transition: background-color 0.25s;
+}
+
+.navigation a:hover {
+    background-color: rgb(200, 200, 200);
+    padding-top: 10px;
+    padding-bottom: 10px;
+    padding-right: 10px;
+    padding-left: 10px;
+}
+
+.loginPlace {
+    color: black;
+    margin: auto;
+}

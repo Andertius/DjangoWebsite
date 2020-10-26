@@ -1,0 +1,123 @@
+/* body {
+    font-family: Sans-Serif;
+    color: white;
+    padding: 0;
+} */
+
+.bg {
+    background-image: url("../images/prime-bg.png");
+    height:100%;
+    width:100%;
+    background-repeat: no-repeat;
+    background-size: cover;
+    position: fixed;
+    z-index: -1;
+    top: 0px;
+    left: 0px;
+}
+
+/* .navigation {
+    background-color: rgb(228, 228, 228);
+    margin-top: 50px;
+    margin-bottom: 50px;
+    margin-left: 150px;
+    margin-right: 150px;
+    text-align: center;
+    border-radius: 15px;
+    display: flex;
+    align-items: center;
+}
+
+.pageTitle {
+    text-align: left;
+    font-size: 36px;
+    color: black;
+    margin-left: 5%;
+    margin-right: 15%;
+    width: 350px;
+}
+
+.navigation li {
+    display: inline;
+    font-size: 24px;
+}
+
+.navigation a {
+    text-decoration: none;
+    color: black;
+    padding-top: 10px;
+    padding-bottom: 10px;
+    padding-right: 10px;
+    padding-left: 10px;
+    transition: background-color 0.25s;
+}
+
+.navigation a:hover {
+    background-color: rgb(200, 200, 200);
+    padding-top: 10px;
+    padding-bottom: 10px;
+    padding-right: 10px;
+    padding-left: 10px;
+} */
+
+.primeFactContainer {
+    margin: auto;
+    width: 75%;
+    display: flex;
+}
+
+.primeFactOverview {
+    background-color: rgb(220, 220, 220);
+    color: black;
+    margin: 50px;
+    padding: 20px;
+    width: 50%;
+    box-sizing: content-box;
+}
+
+.primeFactOverview h2 {
+    text-align: center;
+}
+
+.primeFact {
+    background-color: rgb(220, 220, 220);
+    color: black;
+    margin: 50px;
+    padding: 20px;
+    width: 1000px;
+    box-sizing: content-box;
+}
+
+.primeFact h2 {
+    text-align: center;
+}
+
+.factorizationUserInput {
+    display: inline-flex;
+}
+
+.factorizationInputNumber {
+    background-color: rgb(220, 220, 220);
+    border-bottom: 2px solid black;
+    border-top: 0px;
+    border-left: 0px;
+    border-right: 0px;
+    outline: none;
+}
+
+.factorizationButton {
+    margin-left: 5px;
+}
+
+.factorizationUserInput progress {
+    margin-left: 15px;
+}
+
+.factorizationResultContainer h3 {
+    visibility: hidden;
+}
+
+footer {
+    position: fixed;
+    bottom: 0;
+}

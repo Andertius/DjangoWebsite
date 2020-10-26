@@ -1,0 +1,126 @@
+{% extends 'IntFactorization/main.html' %}
+{% load static %}
+{% block content %}
+    <link rel="stylesheet" type="text/css" href="{% static 'css/prime_fact.css' %}">
+    <div class="bg"></div>
+
+    <div class="primeFactContainer">
+            <div class="primeFactOverview">
+                <h2>Prime Factorization Overview</h2>
+                <p>
+                    Prime factorization or integer factorization of a number is breaking a number down into the set of prime numbers which multiply together to result in the original number.
+                    This is also known as prime decomposition.
+                </p>
+                <h2>How to Find Prime Factorization of a Number</h2>
+                <p>
+                    Say you want to find the prime factors of 100 using trial division. Start by testing each integer to see if and how often it divides 100 and the subsequent quotients evenly.
+                    The resulting set of factors will be prime since, for example, when 2 is exhausted all multiples of 2 are also exhausted.
+                </p>
+            </div>
+
+            <div class="primeFact">
+                <h2>Prime Factorization</h2>
+
+                <div class="factorizationUserInput">
+                    <span>Number to factorize:</span>
+
+                    <form>
+                        <input class="factorizationInputNumber" type="number" name="factInputNumber" placeholder="Enter a number...">
+                        <button class="factorizationSubmit" type="submit">Factorize</button>
+                    </form>
+
+                    <progress id="factorizationProgress" value="0" max="100"></progress>
+                </div>
+
+                <div class="factorizationResultContainer">
+                    <h3>Prime decomposition:</h3>
+                    <p class="factorizationResult"></p>
+                </div>
+            </div>
+        </div>
+        <footer>
+            <p>
+                There are no copyrights are you kidding me
+            </p>
+        </footer>
+    </div>
+{% endblock content %}
+
+<!--<!DOCTYPE html>-->
+<!--<html>-->
+<!--    <head>-->
+<!--        {% load static %}-->
+<!--        <meta charset="UTF-8"/>-->
+<!--		<title>Prime Factorization</title>-->
+<!--		<link rel="stylesheet" type="text/css" href="{% static 'css/prime_fact.css' %}">-->
+<!--        <link rel="icon" href="{% static 'images/logo.png' %}">-->
+<!--    </head>-->
+
+<!--    <body id="PrimePage">-->
+<!--        <div class="bg"></div>-->
+
+<!--        <div id="prime-fact">-->
+<!--            <nav class="navigation">-->
+<!--                <p class="pageTitle">-->
+<!--                    Prime Factorization-->
+<!--                </p>-->
+
+<!--                <div id="navbarSupportedContent">-->
+<!--                    <ul>-->
+<!--                        <li>-->
+<!--                            <a href="{% url 'index' %}">Home Page</a>-->
+<!--                        </li>-->
+
+<!--                        <li>-->
+<!--                            <a href="{% url 'prime_fact' %}">Prime Factorization</a>-->
+<!--                        </li>-->
+
+<!--                        <li>-->
+<!--                            <a href="{% url 'knapsack' %}">Knapsack Problem</a>-->
+<!--                        </li>-->
+<!--                    </ul>-->
+<!--                </div>-->
+<!--            </nav>-->
+
+<!--            <div class="primeFactContainer">-->
+<!--                <div class="primeFactOverview">-->
+<!--                    <h2>Prime Factorization Overview</h2>-->
+<!--                    <p>-->
+<!--                        Prime factorization or integer factorization of a number is breaking a number down into the set of prime numbers which multiply together to result in the original number.-->
+<!--                        This is also known as prime decomposition.-->
+<!--                    </p>-->
+<!--                    <h2>How to Find Prime Factorization of a Number</h2>-->
+<!--                    <p>-->
+<!--                        Say you want to find the prime factors of 100 using trial division. Start by testing each integer to see if and how often it divides 100 and the subsequent quotients evenly.-->
+<!--                        The resulting set of factors will be prime since, for example, when 2 is exhausted all multiples of 2 are also exhausted.-->
+<!--                    </p>-->
+<!--                </div>-->
+
+<!--                <div class="primeFact">-->
+<!--                    <h2>Prime Factorization</h2>-->
+
+<!--                    <div class="factorizationUserInput">-->
+<!--                        <span>Number to factorize:</span>-->
+
+<!--                        <form>-->
+<!--                            <input class="factorizationInputNumber" type="number" name="factInputNumber" placeholder="Enter a number...">-->
+<!--                            <button class="factorizationSubmit" type="submit">Factorize</button>-->
+<!--                        </form>-->
+
+<!--                        <progress id="factorizationProgress" value="0" max="100"></progress>-->
+<!--                    </div>-->
+
+<!--                    <div class="factorizationResultContainer">-->
+<!--                        <h3>Prime decomposition:</h3>-->
+<!--                        <p class="factorizationResult"></p>-->
+<!--                    </div>-->
+<!--                </div>-->
+<!--            </div>-->
+<!--            <footer>-->
+<!--                <p>-->
+<!--                    There are no copyrights are you kidding me-->
+<!--                </p>-->
+<!--            </footer>-->
+<!--        </div>-->
+<!--    </body>-->
+<!--</html>-->
