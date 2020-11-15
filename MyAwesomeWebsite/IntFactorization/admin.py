@@ -3,4 +3,5 @@ from .models import *
 
 # Register your models here.
 
-admin.site.register(UserAcc)
+admin.site.register(PrimeHistory)
+admin.site.register(KnapsackHistory)

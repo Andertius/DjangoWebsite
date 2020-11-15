@@ -1,6 +1,10 @@
 from django.shortcuts import render, redirect
 from django.contrib.auth import login, authenticate
 from django.contrib.auth.forms import UserCreationForm
+from django.http import HttpResponse, JsonResponse
+from rest_framework.parsers import JSONParser
+from .models import *
+from .serializers import *
 
 
 def index(request):
@@ -38,3 +42,8 @@ def signup(request):
     else:
         form = UserCreationForm()
     return render(request, 'IntFactorization/signup.html', {'form': form})
+
+
+def factorize(request):
+    if request == 'GET':
+        pass
