@@ -25,8 +25,14 @@ SECRET_KEY = 'ja3rb4=5g&qq#51gxkwb!wn*kc3bmd(+ebwmpuo_((*ov#1+sg'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = [
+    'intfactweb',
+]
 
+CSRF_TRUSTED_ORIGINS = [
+    'localhost:4430',
+    '127.0.0.1:4430,',
+]
 
 # Application definition
 
@@ -126,3 +132,11 @@ STATICFILES_DIRS = [
 ]
 
 LOGIN_REDIRECT_URL = '/'
+
+SECURE_PROXY_SSL_HEADER = ('HTTP_X_FORWARDED_PROTO', 'https')
+
+SECURE_SSL_REDIRECT = True
+
+SESSION_COOKIE_SECURE = True
+
+CSRF_COOKIE_SECURE = True

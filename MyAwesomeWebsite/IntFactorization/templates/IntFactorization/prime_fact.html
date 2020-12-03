@@ -4,6 +4,55 @@
     <link rel="stylesheet" type="text/css" href="{% static 'css/prime_fact.css' %}">
     <div class="bg"></div>
 
+    <script>
+        function timeout(ms, promise) {
+            return new Promise((resolve, reject) => {
+                const timer = setTimeout(() => {
+                reject(new Error('TIMEOUT'))
+                }, ms)
+
+                promise
+                .then(value => {
+                    clearTimeout(timer)
+                    resolve(value)
+                })
+                .catch(reason => {
+                    clearTimeout(timer)
+                    reject(reason)
+                })
+            })
+        }
+
+        function factorize(event) {
+            event.preventDefault();
+            const num = document.getElementById("factorizationInput").value;
+            const a = document.getElementById("factorizationResult");
+            a.innerHTML = "";
+            const b = document.getElementById("loader");
+            b.style.visibility = "visible";
+            
+            timeout(60000, fetch(`/factorize/${num}`))
+                .then(result => result.json())
+                .then(result => {
+                    if (result === 400) {
+                        const a = document.getElementById("factorizationResult");
+                        a.innerHTML = "Number too large";
+                        b.style.visibility = "hidden";
+                    } else {
+                        const a = document.getElementById("factorizationResult");
+                        a.innerHTML = result.reduce((acc, number) => `${acc}, ${number}`);
+                        b.style.visibility = "hidden";
+                    }
+                }).catch(function(error) {
+                    if (error.message === 'TIMEOUT') {
+                        const a = document.getElementById("factorizationResult");
+                        a.innerHTML = "Timeout error, your request took more than a minute to process.";
+                        b.style.visibility = "hidden";
+                    }
+                });
+        }
+    </script>
+
     <div class="primeFactContainer">
             <div class="primeFactOverview">
                 <h2>Prime Factorization Overview</h2>
@@ -24,17 +73,22 @@
                 <div class="factorizationUserInput">
                     <span>Number to factorize:</span>
 
-                    <form>
-                        <input class="factorizationInputNumber" type="number" name="factInputNumber" placeholder="Enter a number...">
-                        <button class="factorizationSubmit" type="submit">Factorize</button>
+                    <form id="factorizationInputForm">
+                        <input class="factorizationInputNumber" type="number" name="factInputNumber" id="factorizationInput" placeholder="Enter a number..." min="0"
+                        max="100000000000000000000000000000000000000000000000000000000000000000000000000000000">
+                        <button class="factorizationSubmit" type="submit" onclick="factorize(event)">Factorize</button>
                     </form>
 
-                    <progress id="factorizationProgress" value="0" max="100"></progress>
+                    <div id="loader" class="loadingIcon"></div>
                 </div>
 
-                <div class="factorizationResultContainer">
+                <form action="/prime_history" class="viewHistory">
+                    <input type="submit" value="History"/>
+                </form>
+
+                <div>
                     <h3>Prime decomposition:</h3>
-                    <p class="factorizationResult"></p>
+                    <p id="factorizationResult"></p>
                 </div>
             </div>
     </div>
