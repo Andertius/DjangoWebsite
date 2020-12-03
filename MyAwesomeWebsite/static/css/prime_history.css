@@ -1,0 +1,27 @@
+.bg {
+    background-image: url("../images/prime-bg.png");
+    height:100%;
+    width:100%;
+    background-repeat: no-repeat;
+    background-size: cover;
+    position: fixed;
+    z-index: -1;
+    top: 0px;
+    left: 0px;
+}
+
+.container {
+    margin: auto;
+    width: 75%;
+    display: flex;
+    background-color: rgb(220, 220, 220);
+    color: black;
+    margin: auto;
+    padding: 20px;
+    width: 50%;
+    box-sizing: content-box;
+}
+
+.container ul li {
+    margin-bottom: 5px;
+}

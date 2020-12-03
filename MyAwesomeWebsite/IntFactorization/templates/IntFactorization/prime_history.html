@@ -1,0 +1,20 @@
+{% extends 'IntFactorization/main.html' %}
+{% load static %}
+{% block content %}
+    <link rel="stylesheet" type="text/css" href="{% static 'css/prime_history.css' %}">
+    <div class="bg"></div>
+
+    <div class="container">
+        <ul style="list-style-type: none;">
+            {% for item in history %}
+                <li>{{ item }}</li>
+            {% endfor %}
+        </ul>
+    </div>
+
+    <footer>
+        <p>
+            Apples. © Newton
+        </p>
+    </footer>
+{% endblock content %}
