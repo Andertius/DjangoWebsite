@@ -31,7 +31,7 @@ ALLOWED_HOSTS = [
 
 CSRF_TRUSTED_ORIGINS = [
     'localhost:4430',
-    '127.0.0.1:4430,',
+    '127.0.0.1:4430',
 ]
 
 # Application definition
